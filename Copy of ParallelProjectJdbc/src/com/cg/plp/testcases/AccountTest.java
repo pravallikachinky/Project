@@ -369,7 +369,7 @@ public class AccountTest {
 			service.fundTransfer(acc1.getPhoneNum(),acc2.getPhoneNum(), money);
 			System.out.println("Amount transfered successfully");
 		}catch(AccountException e){
-		System.err.println(e.getMessage());
+		assertEquals("Account Does not exist",e.getMessage());
 		}
 		
 	}

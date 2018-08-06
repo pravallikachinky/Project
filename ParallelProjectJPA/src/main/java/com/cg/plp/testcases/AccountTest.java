@@ -21,7 +21,7 @@ public class AccountTest {
 	public void init() {
 		service = new AccountService();
 	}
-	@Test
+/*	@Test
 	public void testValidateMobile()  {
 		
 		acc.setCustName("Pravallika");
@@ -132,7 +132,7 @@ public class AccountTest {
 	public void testCreateAcc(){
 		acc.setCustName("Pravallika");
 		acc.setPhoneNum("3333344444");
-		acc.setBal(50000.00);
+		acc.setBal(55000.00);
 		acc.setGender("female");
 		acc.setEmailId("hello@gmail.com");
 		acc.setDoj(Date.valueOf(LocalDate.now()));
@@ -142,7 +142,7 @@ public class AccountTest {
 			
 			
 		} catch (AccountException e) {
-		
+		System.out.println(e.getMessage());
 			
 		}
 	}
@@ -160,7 +160,7 @@ public class AccountTest {
 			
 			
 		} catch (AccountException e) {
-		
+		System.out.println(e.getMessage());
 			
 		}
 	}
@@ -250,11 +250,11 @@ public class AccountTest {
 	@Test
 	public void testWithdrawCheckAmountBal(){
 	acc.setPhoneNum("3333344444");
-	double dep=50000.00;
+	double dep=70000.00;
 	try{
 		service.withdraw(acc.getPhoneNum(),dep);
 	}catch(AccountException e){
-	assertEquals("Account Does not exist",e.getMessage());
+	assertEquals("Account balance is Low",e.getMessage());
 	}
 	}
 	@Test
@@ -267,7 +267,7 @@ public class AccountTest {
 	}catch(AccountException e){
 	System.err.println(e.getMessage());
 	}
-	}
+	}*/
 	
 	@Test
 	public void testFundTransferCheckPhone1(){
@@ -275,7 +275,7 @@ public class AccountTest {
 		Account acc2=new Account();
 		acc1.setPhoneNum("1111122222");
 		acc2.setPhoneNum("3333344444");
-		double money=1230.00;
+		double money=100.00;
 		try {
 			service.validateMobile(acc1.getPhoneNum());
 		} catch (AccountException e) {
@@ -319,7 +319,7 @@ public class AccountTest {
 		Account acc2=new Account();
 		acc1.setPhoneNum("1111122222");
 		acc2.setPhoneNum("3333344444");
-		double money=1230.00;
+		double money=100.00;
 		try {
 			service.fundTransfer(acc1.getPhoneNum(),acc2.getPhoneNum(), money);
 		}catch(AccountException e){
@@ -334,7 +334,7 @@ public class AccountTest {
 		Account acc2=new Account();
 		acc1.setPhoneNum("1111122222");
 		acc2.setPhoneNum("3333355555");
-		double money=1230.00;
+		double money=100.00;
 		try {
 			service.fundTransfer(acc1.getPhoneNum(),acc2.getPhoneNum(), money);
 		}catch(AccountException e){
@@ -350,7 +350,7 @@ public class AccountTest {
 		Account acc2=new Account();
 		acc1.setPhoneNum("1111122222");
 		acc2.setPhoneNum("3333344444");
-		double money=2234.00;
+		double money=100.00;
 		try {
 			service.fundTransfer(acc1.getPhoneNum(),acc2.getPhoneNum(), money);
 		}catch(AccountException e){
@@ -364,7 +364,7 @@ public class AccountTest {
 		Account acc2=new Account();
 		acc1.setPhoneNum("1111122222");
 		acc2.setPhoneNum("3333344444");
-		double money=1230.00;
+		double money=100.00;
 		try {
 			service.fundTransfer(acc1.getPhoneNum(),acc2.getPhoneNum(), money);
 			System.out.println("Amount transfered successfully");
